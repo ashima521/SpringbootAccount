@@ -14,6 +14,8 @@ public interface AccountRepo extends JpaRepository<Account, Long> {
 
 	Set<Account> findByLastName(String lastName);
 
+	Account findByAccountNumber(String accountNumber);
+
 	Set<Account> findByFirstNameAndLastName(String firstName, String lastName);
 
 }

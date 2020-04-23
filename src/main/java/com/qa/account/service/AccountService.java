@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.security.auth.login.AccountNotFoundException;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +42,7 @@ public class AccountService {
 	public ResponseEntity<Account> addAccount(Account account) {
 		account.setAccountNumber(this.numGen.genNumber());
 		account.setPrize(prizeGen.genPrize(account.getAccountNumber()));
-		return ResponseEntity.ok(this.repo.save(account));
+		return new ResponseEntity<Account>(this.repo.save(account), HttpStatus.CREATED);
 	}
 
 	public ResponseEntity<Object> deleteAccount(Long id) {
