@@ -2,6 +2,10 @@ package com.qa.account.util;
 
 import java.util.Random;
 
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+
+
 public class NumberGenerator {
 
 	private int length;
@@ -10,6 +14,7 @@ public class NumberGenerator {
 	public NumberGenerator(int length) {
 		this.length = length;
 	}
+
 
 	public String genNumber() {
 		Random rand = new Random();

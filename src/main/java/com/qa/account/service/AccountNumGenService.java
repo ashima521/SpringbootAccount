@@ -1,11 +1,12 @@
 package com.qa.account.service;
 
 import org.springframework.stereotype.Service;
-
 import com.qa.account.util.NumberGenerator;
+
 
 @Service
 public class AccountNumGenService {
+	
 
 	private NumberGenerator numGen;
 
