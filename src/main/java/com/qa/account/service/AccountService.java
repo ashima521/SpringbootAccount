@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.security.auth.login.AccountNotFoundException;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +13,16 @@ import com.qa.account.persistence.repo.AccountRepo;
 @Service
 public class AccountService {
 
-	@Autowired
 	private AccountRepo repo;
-	@Autowired
 	private AccountNumGenService numGen;
-	@Autowired
 	private PrizeGenService prizeGen;
+
+	public AccountService(AccountRepo repo, AccountNumGenService numGen, PrizeGenService prizeGen) {
+		super();
+		this.repo = repo;
+		this.numGen = numGen;
+		this.prizeGen = prizeGen;
+	}
 
 	public ResponseEntity<List<Account>> getAccounts() {
 		return ResponseEntity.ok(repo.findAll());
